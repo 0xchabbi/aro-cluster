@@ -1,0 +1,2167 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccounts_clusterq0076_name": {
+            "defaultValue": "clusterq0076",
+            "type": "String"
+        },
+        "loadBalancers_cluster_aro_zcqjz_name": {
+            "defaultValue": "cluster-aro-zcqjz",
+            "type": "String"
+        },
+        "storageAccounts_imageregistryq0076_name": {
+            "defaultValue": "imageregistryq0076",
+            "type": "String"
+        },
+        "privateEndpoints_cluster_aro_zcqjz_pe_name": {
+            "defaultValue": "cluster-aro-zcqjz-pe",
+            "type": "String"
+        },
+        "loadBalancers_cluster_aro_zcqjz_internal_name": {
+            "defaultValue": "cluster-aro-zcqjz-internal",
+            "type": "String"
+        },
+        "privateLinkServices_cluster_aro_zcqjz_pls_name": {
+            "defaultValue": "cluster-aro-zcqjz-pls",
+            "type": "String"
+        },
+        "virtualMachines_cluster_aro_zcqjz_master_0_name": {
+            "defaultValue": "cluster-aro-zcqjz-master-0",
+            "type": "String"
+        },
+        "virtualMachines_cluster_aro_zcqjz_master_1_name": {
+            "defaultValue": "cluster-aro-zcqjz-master-1",
+            "type": "String"
+        },
+        "virtualMachines_cluster_aro_zcqjz_master_2_name": {
+            "defaultValue": "cluster-aro-zcqjz-master-2",
+            "type": "String"
+        },
+        "publicIPAddresses_cluster_aro_zcqjz_pip_v4_name": {
+            "defaultValue": "cluster-aro-zcqjz-pip-v4",
+            "type": "String"
+        },
+        "networkSecurityGroups_cluster_aro_zcqjz_nsg_name": {
+            "defaultValue": "cluster-aro-zcqjz-nsg",
+            "type": "String"
+        },
+        "publicIPAddresses_cluster_aro_zcqjz_default_v4_name": {
+            "defaultValue": "cluster-aro-zcqjz-default-v4",
+            "type": "String"
+        },
+        "networkInterfaces_cluster_aro_zcqjz_master0_nic_name": {
+            "defaultValue": "cluster-aro-zcqjz-master0-nic",
+            "type": "String"
+        },
+        "networkInterfaces_cluster_aro_zcqjz_master1_nic_name": {
+            "defaultValue": "cluster-aro-zcqjz-master1-nic",
+            "type": "String"
+        },
+        "networkInterfaces_cluster_aro_zcqjz_master2_nic_name": {
+            "defaultValue": "cluster-aro-zcqjz-master2-nic",
+            "type": "String"
+        },
+        "virtualMachines_cluster_aro_zcqjz_worker_westeurope1_jpr7z_name": {
+            "defaultValue": "cluster-aro-zcqjz-worker-westeurope1-jpr7z",
+            "type": "String"
+        },
+        "virtualMachines_cluster_aro_zcqjz_worker_westeurope2_hsdjh_name": {
+            "defaultValue": "cluster-aro-zcqjz-worker-westeurope2-hsdjh",
+            "type": "String"
+        },
+        "virtualMachines_cluster_aro_zcqjz_worker_westeurope3_gl5hj_name": {
+            "defaultValue": "cluster-aro-zcqjz-worker-westeurope3-gl5hj",
+            "type": "String"
+        },
+        "networkInterfaces_cluster_aro_zcqjz_worker_westeurope1_jpr7z_nic_name": {
+            "defaultValue": "cluster-aro-zcqjz-worker-westeurope1-jpr7z-nic",
+            "type": "String"
+        },
+        "networkInterfaces_cluster_aro_zcqjz_worker_westeurope2_hsdjh_nic_name": {
+            "defaultValue": "cluster-aro-zcqjz-worker-westeurope2-hsdjh-nic",
+            "type": "String"
+        },
+        "networkInterfaces_cluster_aro_zcqjz_worker_westeurope3_gl5hj_nic_name": {
+            "defaultValue": "cluster-aro-zcqjz-worker-westeurope3-gl5hj-nic",
+            "type": "String"
+        },
+        "disks_cluster_aro_zcqjz_dynamic_pvc_0cd0b5a6_a90a_497b_a567_e9fea76c9cdc_name": {
+            "defaultValue": "cluster-aro-zcqjz-dynamic-pvc-0cd0b5a6-a90a-497b-a567-e9fea76c9cdc",
+            "type": "String"
+        },
+        "networkInterfaces_cluster_aro_zcqjz_pe_nic_0044dba0_7671_4a24_850a_d34369a604e5_name": {
+            "defaultValue": "cluster-aro-zcqjz-pe.nic.0044dba0-7671-4a24-850a-d34369a604e5",
+            "type": "String"
+        },
+        "networkInterfaces_cluster_aro_zcqjz_pls_nic_3b052138_5dd5_45e9_b69c_390b05544d7f_name": {
+            "defaultValue": "cluster-aro-zcqjz-pls.nic.3b052138-5dd5-45e9-b69c-390b05544d7f",
+            "type": "String"
+        },
+        "virtualNetworks_aro_vnet_externalid": {
+            "defaultValue": "/subscriptions/8fdfcd42-cb6a-4f09-bd1d-984a332c84b1/resourceGroups/aro-rg/providers/Microsoft.Network/virtualNetworks/aro-vnet",
+            "type": "String"
+        },
+        "privateLinkServices_gateway_pls_001_externalid": {
+            "defaultValue": "/subscriptions/670fef00-02e0-4cd9-8c92-5f593005be0d/resourceGroups/gwy-westeurope/providers/Microsoft.Network/privateLinkServices/gateway-pls-001",
+            "type": "String"
+        },
+        "virtualNetworks_rp_pe_vnet_001_externalid": {
+            "defaultValue": "/subscriptions/670fef00-02e0-4cd9-8c92-5f593005be0d/resourceGroups/rp-westeurope/providers/Microsoft.Network/virtualNetworks/rp-pe-vnet-001",
+            "type": "String"
+        },
+        "virtualNetworks_rp_vnet_externalid": {
+            "defaultValue": "/subscriptions/670fef00-02e0-4cd9-8c92-5f593005be0d/resourceGroups/rp-westeurope/providers/Microsoft.Network/virtualNetworks/rp-vnet",
+            "type": "String"
+        },
+        "virtualNetworks_gateway_vnet_externalid": {
+            "defaultValue": "/subscriptions/670fef00-02e0-4cd9-8c92-5f593005be0d/resourceGroups/gwy-westeurope/providers/Microsoft.Network/virtualNetworks/gateway-vnet",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Compute/disks",
+            "apiVersion": "2022-07-02",
+            "name": "[parameters('disks_cluster_aro_zcqjz_dynamic_pvc_0cd0b5a6_a90a_497b_a567_e9fea76c9cdc_name')]",
+            "location": "westeurope",
+            "tags": {
+                "created-by": "kubernetes-azure-dd",
+                "kubernetes.io-created-for-pv-name": "pvc-0cd0b5a6-a90a-497b-a567-e9fea76c9cdc",
+                "kubernetes.io-created-for-pvc-name": "pvc-c7a31f21f8",
+                "kubernetes.io-created-for-pvc-namespace": "newproject"
+            },
+            "sku": {
+                "name": "Premium_LRS",
+                "tier": "Premium"
+            },
+            "zones": [
+                "1"
+            ],
+            "properties": {
+                "creationData": {
+                    "createOption": "Empty"
+                },
+                "diskSizeGB": 1,
+                "diskIOPSReadWrite": 120,
+                "diskMBpsReadWrite": 25,
+                "encryption": {
+                    "type": "EncryptionAtRestWithPlatformKey"
+                },
+                "networkAccessPolicy": "AllowAll",
+                "publicNetworkAccess": "Enabled",
+                "diskState": "Unattached",
+                "tier": "P1"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2022-07-01",
+            "name": "[parameters('networkInterfaces_cluster_aro_zcqjz_pe_nic_0044dba0_7671_4a24_850a_d34369a604e5_name')]",
+            "location": "westeurope",
+            "kind": "Regular",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "privateEndpointIpConfig.d7d8ef87-04fc-4980-aec7-07c9f98e5fff",
+                        "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_pe_nic_0044dba0_7671_4a24_850a_d34369a604e5_name')), '/ipConfigurations/privateEndpointIpConfig.d7d8ef87-04fc-4980-aec7-07c9f98e5fff')]",
+                        "etag": "W/\"14e23fd4-d214-4a92-840a-b85b3132ae02\"",
+                        "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.0.5",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[concat(parameters('virtualNetworks_aro_vnet_externalid'), '/subnets/master-subnet')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4",
+                            "privateLinkConnectionProperties": {
+                                "groupId": "",
+                                "requiredMemberName": "",
+                                "fqdns": []
+                            }
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "disableTcpStateTracking": false,
+                "nicType": "Standard"
+            }
+        },
+        {
+            "type": "Microsoft.Network/privateEndpoints",
+            "apiVersion": "2022-07-01",
+            "name": "[parameters('privateEndpoints_cluster_aro_zcqjz_pe_name')]",
+            "location": "westeurope",
+            "properties": {
+                "privateLinkServiceConnections": [],
+                "manualPrivateLinkServiceConnections": [
+                    {
+                        "name": "gateway-plsconnection",
+                        "id": "[concat(resourceId('Microsoft.Network/privateEndpoints', parameters('privateEndpoints_cluster_aro_zcqjz_pe_name')), '/manualPrivateLinkServiceConnections/gateway-plsconnection')]",
+                        "properties": {
+                            "privateLinkServiceId": "[parameters('privateLinkServices_gateway_pls_001_externalid')]",
+                            "privateLinkServiceConnectionState": {
+                                "status": "Approved",
+                                "description": "Approved",
+                                "actionsRequired": "None"
+                            }
+                        }
+                    }
+                ],
+                "subnet": {
+                    "id": "[concat(parameters('virtualNetworks_aro_vnet_externalid'), '/subnets/master-subnet')]"
+                },
+                "ipConfigurations": [],
+                "customDnsConfigs": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2022-07-01",
+            "name": "[parameters('publicIPAddresses_cluster_aro_zcqjz_default_v4_name')]",
+            "location": "westeurope",
+            "sku": {
+                "name": "Standard",
+                "tier": "Regional"
+            },
+            "properties": {
+                "ipAddress": "20.160.129.206",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Static",
+                "idleTimeoutInMinutes": 4,
+                "ipTags": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2022-07-01",
+            "name": "[parameters('publicIPAddresses_cluster_aro_zcqjz_pip_v4_name')]",
+            "location": "westeurope",
+            "sku": {
+                "name": "Standard",
+                "tier": "Regional"
+            },
+            "properties": {
+                "ipAddress": "20.160.129.200",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Static",
+                "idleTimeoutInMinutes": 4,
+                "ipTags": []
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2022-09-01",
+            "name": "[parameters('storageAccounts_clusterq0076_name')]",
+            "location": "westeurope",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "StorageV2",
+            "properties": {
+                "minimumTlsVersion": "TLS1_2",
+                "allowBlobPublicAccess": false,
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "virtualNetworkRules": [
+                        {
+                            "id": "[concat(parameters('virtualNetworks_aro_vnet_externalid'), '/subnets/master-subnet')]",
+                            "action": "Allow",
+                            "state": "Succeeded"
+                        },
+                        {
+                            "id": "[concat(parameters('virtualNetworks_aro_vnet_externalid'), '/subnets/worker-subnet')]",
+                            "action": "Allow",
+                            "state": "Succeeded"
+                        },
+                        {
+                            "id": "[concat(parameters('virtualNetworks_rp_pe_vnet_001_externalid'), '/subnets/rp-pe-subnet')]",
+                            "action": "Allow",
+                            "state": "Succeeded"
+                        },
+                        {
+                            "id": "[concat(parameters('virtualNetworks_rp_vnet_externalid'), '/subnets/rp-subnet')]",
+                            "action": "Allow",
+                            "state": "Succeeded"
+                        },
+                        {
+                            "id": "[concat(parameters('virtualNetworks_gateway_vnet_externalid'), '/subnets/gateway-subnet')]",
+                            "action": "Allow",
+                            "state": "Succeeded"
+                        }
+                    ],
+                    "ipRules": [],
+                    "defaultAction": "Deny"
+                },
+                "supportsHttpsTrafficOnly": true,
+                "encryption": {
+                    "services": {
+                        "file": {
+                            "keyType": "Account",
+                            "enabled": true
+                        },
+                        "blob": {
+                            "keyType": "Account",
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                },
+                "accessTier": "Hot"
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2022-09-01",
+            "name": "[parameters('storageAccounts_imageregistryq0076_name')]",
+            "location": "westeurope",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "StorageV2",
+            "properties": {
+                "minimumTlsVersion": "TLS1_2",
+                "allowBlobPublicAccess": false,
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "virtualNetworkRules": [
+                        {
+                            "id": "[concat(parameters('virtualNetworks_aro_vnet_externalid'), '/subnets/master-subnet')]",
+                            "action": "Allow",
+                            "state": "Succeeded"
+                        },
+                        {
+                            "id": "[concat(parameters('virtualNetworks_aro_vnet_externalid'), '/subnets/worker-subnet')]",
+                            "action": "Allow",
+                            "state": "Succeeded"
+                        },
+                        {
+                            "id": "[concat(parameters('virtualNetworks_rp_pe_vnet_001_externalid'), '/subnets/rp-pe-subnet')]",
+                            "action": "Allow",
+                            "state": "Succeeded"
+                        },
+                        {
+                            "id": "[concat(parameters('virtualNetworks_rp_vnet_externalid'), '/subnets/rp-subnet')]",
+                            "action": "Allow",
+                            "state": "Succeeded"
+                        },
+                        {
+                            "id": "[concat(parameters('virtualNetworks_gateway_vnet_externalid'), '/subnets/gateway-subnet')]",
+                            "action": "Allow",
+                            "state": "Succeeded"
+                        }
+                    ],
+                    "ipRules": [],
+                    "defaultAction": "Deny"
+                },
+                "supportsHttpsTrafficOnly": true,
+                "encryption": {
+                    "services": {
+                        "file": {
+                            "keyType": "Account",
+                            "enabled": true
+                        },
+                        "blob": {
+                            "keyType": "Account",
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                },
+                "accessTier": "Hot"
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2022-11-01",
+            "name": "[parameters('virtualMachines_cluster_aro_zcqjz_worker_westeurope1_jpr7z_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_worker_westeurope1_jpr7z_nic_name'))]"
+            ],
+            "tags": {
+                "kubernetes.io-cluster-cluster-aro-zcqjz": "owned"
+            },
+            "zones": [
+                "1"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_D4s_v3"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "azureopenshift",
+                        "offer": "aro4",
+                        "sku": "aro_410",
+                        "version": "410.84.20220125"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "[concat(parameters('virtualMachines_cluster_aro_zcqjz_worker_westeurope1_jpr7z_name'), '_OSDisk')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "storageAccountType": "Premium_LRS",
+                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_cluster_aro_zcqjz_worker_westeurope1_jpr7z_name'), '_OSDisk'))]"
+                        },
+                        "deleteOption": "Detach",
+                        "diskSizeGB": 128
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_cluster_aro_zcqjz_worker_westeurope1_jpr7z_name')]",
+                    "adminUsername": "capi",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": true,
+                        "ssh": {
+                            "publicKeys": [
+                                {
+                                    "path": "/home/capi/.ssh/authorized_keys",
+                                    "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCnIGweSRwIH2BzCluS9UzF9qQEDLdv6yEe0tlwgmT7nn5rS2ekQbhToAnNueZQubzW9RJtwnaCmFpMHPSq2bVyt4adi/YgolNY31i124WsbmxOue1t7ZLa63PQyRt2TaZMOo84NSNBxTShq5opEKnDxZSVUyt3p62rkhrF4WCMsjZTMOrkbbxPZNUn/Eg2v51VOLSm4Sd+AdUxcTg4GlHz1LXrfl+XR0MZmB+RcEXo+uOpq2/BIunnt82/8pipl94WGmjbEUAaadkMYU3g6C/d0DAAGujRMVolWhevSs/NqzP8DN9SUT3ncxlyR5dNnlQFw5MCHQ7LOAKD4XjxmHdR\n"
+                                }
+                            ]
+                        },
+                        "provisionVMAgent": true,
+                        "patchSettings": {
+                            "patchMode": "ImageDefault",
+                            "assessmentMode": "ImageDefault"
+                        },
+                        "enableVMAgentPlatformUpdates": false
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true,
+                    "requireGuestProvisionSignal": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_worker_westeurope1_jpr7z_nic_name'))]",
+                            "properties": {
+                                "primary": true
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2022-11-01",
+            "name": "[parameters('virtualMachines_cluster_aro_zcqjz_worker_westeurope2_hsdjh_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_worker_westeurope2_hsdjh_nic_name'))]"
+            ],
+            "tags": {
+                "kubernetes.io-cluster-cluster-aro-zcqjz": "owned"
+            },
+            "zones": [
+                "2"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_D4s_v3"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "azureopenshift",
+                        "offer": "aro4",
+                        "sku": "aro_410",
+                        "version": "410.84.20220125"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "[concat(parameters('virtualMachines_cluster_aro_zcqjz_worker_westeurope2_hsdjh_name'), '_OSDisk')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "storageAccountType": "Premium_LRS",
+                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_cluster_aro_zcqjz_worker_westeurope2_hsdjh_name'), '_OSDisk'))]"
+                        },
+                        "deleteOption": "Detach",
+                        "diskSizeGB": 128
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_cluster_aro_zcqjz_worker_westeurope2_hsdjh_name')]",
+                    "adminUsername": "capi",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": true,
+                        "ssh": {
+                            "publicKeys": [
+                                {
+                                    "path": "/home/capi/.ssh/authorized_keys",
+                                    "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDp/mP4MglrmWavfy8v6YVUEJ8uJMgfQA2OrJ6kkiOt9ozR2eKSzJcM7FYzJKYuvpFsGIngMPzH0GmSjKxt+GqmffTZyzv7sE2Ivej4LVCf1dqQ4eFALpUsZwUvskP8KUuVB3iEZ3B/B4kN8IYayOWB4m4tJMKvdiHjEC/523kGUkGlJJy+ZBGUg1UZQD5IVDdAT58CerZsgmK/wolZpVYXLgmBwxXWQP4uJ48IcQqeJJmqd1kDkkMw4J/A806UUZX5ozadO3PpwrIwO8xnG+eT/v4MZ/XLZBa7lBX1kyOUaWHvjX8efDSknKhir0PC951jwa/vU8dnhSKn1YdqkdTJ\n"
+                                }
+                            ]
+                        },
+                        "provisionVMAgent": true,
+                        "patchSettings": {
+                            "patchMode": "ImageDefault",
+                            "assessmentMode": "ImageDefault"
+                        },
+                        "enableVMAgentPlatformUpdates": false
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true,
+                    "requireGuestProvisionSignal": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_worker_westeurope2_hsdjh_nic_name'))]",
+                            "properties": {
+                                "primary": true
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2022-11-01",
+            "name": "[parameters('virtualMachines_cluster_aro_zcqjz_worker_westeurope3_gl5hj_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_worker_westeurope3_gl5hj_nic_name'))]"
+            ],
+            "tags": {
+                "kubernetes.io-cluster-cluster-aro-zcqjz": "owned"
+            },
+            "zones": [
+                "3"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_D4s_v3"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "azureopenshift",
+                        "offer": "aro4",
+                        "sku": "aro_410",
+                        "version": "410.84.20220125"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "[concat(parameters('virtualMachines_cluster_aro_zcqjz_worker_westeurope3_gl5hj_name'), '_OSDisk')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "storageAccountType": "Premium_LRS",
+                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_cluster_aro_zcqjz_worker_westeurope3_gl5hj_name'), '_OSDisk'))]"
+                        },
+                        "deleteOption": "Detach",
+                        "diskSizeGB": 128
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_cluster_aro_zcqjz_worker_westeurope3_gl5hj_name')]",
+                    "adminUsername": "capi",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": true,
+                        "ssh": {
+                            "publicKeys": [
+                                {
+                                    "path": "/home/capi/.ssh/authorized_keys",
+                                    "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvZWNwdPAAIRzcWy4MPipoAGQ/n9k+I0X9Q8H/1aNlDpzHPiTlhJlnioC172fStc4gOTjtdVA+llkl10AIvgYPIGCbukjZJLiENMXEHtslPgQO1nanKTfN+EDGfbfRS9vfChGtK2LYLogJNM59/mJ6m2hUl8OZbV15b4rSb/uCc9rwHJE1Dp6v+pd2aVBL6LHgnEjRTNcA/7j0uq2uJQ9NBrbMMhLDldvSZitAxXd3suvBkUVXVWdv/d97QIdSn079vB+xg2mOuDv0ESFlqEDWfndS/hC6i4SqSanfmj4T6RHIun4ASfkOle9YmJlieoMNf4CRScxfH7BPV/VlC/6d\n"
+                                }
+                            ]
+                        },
+                        "provisionVMAgent": true,
+                        "patchSettings": {
+                            "patchMode": "ImageDefault",
+                            "assessmentMode": "ImageDefault"
+                        },
+                        "enableVMAgentPlatformUpdates": false
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true,
+                    "requireGuestProvisionSignal": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_worker_westeurope3_gl5hj_nic_name'))]",
+                            "properties": {
+                                "primary": true
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/loadBalancers/backendAddressPools",
+            "apiVersion": "2022-07-01",
+            "name": "[concat(parameters('loadBalancers_cluster_aro_zcqjz_name'), '/', parameters('loadBalancers_cluster_aro_zcqjz_name'))]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+            ],
+            "properties": {
+                "loadBalancerBackendAddresses": [
+                    {
+                        "name": "aro-cvrk480s_cluster-aro-zcqjz-master0-nicpipConfig",
+                        "properties": {}
+                    },
+                    {
+                        "name": "aro-cvrk480s_cluster-aro-zcqjz-master2-nicpipConfig",
+                        "properties": {}
+                    },
+                    {
+                        "name": "aro-cvrk480s_cluster-aro-zcqjz-master1-nicpipConfig",
+                        "properties": {}
+                    },
+                    {
+                        "name": "aro-cvrk480s_cluster-aro-zcqjz-worker-westeurope2-hsdjh-nicpipConfig",
+                        "properties": {}
+                    },
+                    {
+                        "name": "aro-cvrk480s_cluster-aro-zcqjz-worker-westeurope3-gl5hj-nicpipConfig",
+                        "properties": {}
+                    },
+                    {
+                        "name": "aro-cvrk480s_cluster-aro-zcqjz-worker-westeurope1-jpr7z-nicpipConfig",
+                        "properties": {}
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Network/loadBalancers/backendAddressPools",
+            "apiVersion": "2022-07-01",
+            "name": "[concat(parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), '/cluster-aro-zcqjz')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'))]"
+            ],
+            "properties": {
+                "loadBalancerBackendAddresses": [
+                    {
+                        "name": "aro-cvrk480s_cluster-aro-zcqjz-master0-nicpipConfig",
+                        "properties": {}
+                    },
+                    {
+                        "name": "aro-cvrk480s_cluster-aro-zcqjz-master2-nicpipConfig",
+                        "properties": {}
+                    },
+                    {
+                        "name": "aro-cvrk480s_cluster-aro-zcqjz-master1-nicpipConfig",
+                        "properties": {}
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Network/loadBalancers/backendAddressPools",
+            "apiVersion": "2022-07-01",
+            "name": "[concat(parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), '/ssh-0')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'))]"
+            ],
+            "properties": {
+                "loadBalancerBackendAddresses": [
+                    {
+                        "name": "aro-cvrk480s_cluster-aro-zcqjz-master0-nicpipConfig",
+                        "properties": {}
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Network/loadBalancers/backendAddressPools",
+            "apiVersion": "2022-07-01",
+            "name": "[concat(parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), '/ssh-1')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'))]"
+            ],
+            "properties": {
+                "loadBalancerBackendAddresses": [
+                    {
+                        "name": "aro-cvrk480s_cluster-aro-zcqjz-master1-nicpipConfig",
+                        "properties": {}
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Network/loadBalancers/backendAddressPools",
+            "apiVersion": "2022-07-01",
+            "name": "[concat(parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), '/ssh-2')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'))]"
+            ],
+            "properties": {
+                "loadBalancerBackendAddresses": [
+                    {
+                        "name": "aro-cvrk480s_cluster-aro-zcqjz-master2-nicpipConfig",
+                        "properties": {}
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2022-07-01",
+            "name": "[parameters('networkInterfaces_cluster_aro_zcqjz_pls_nic_3b052138_5dd5_45e9_b69c_390b05544d7f_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/privateLinkServices', parameters('privateLinkServices_cluster_aro_zcqjz_pls_name'))]"
+            ],
+            "kind": "Regular",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "cluster-aro-zcqjz-pls-nic",
+                        "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_pls_nic_3b052138_5dd5_45e9_b69c_390b05544d7f_name')), '/ipConfigurations/cluster-aro-zcqjz-pls-nic')]",
+                        "etag": "W/\"c686f4df-4df6-4b2f-bc35-a214b68016f1\"",
+                        "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.0.6",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[concat(parameters('virtualNetworks_aro_vnet_externalid'), '/subnets/master-subnet')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "disableTcpStateTracking": false,
+                "privateLinkService": {
+                    "id": "[resourceId('Microsoft.Network/privateLinkServices', parameters('privateLinkServices_cluster_aro_zcqjz_pls_name'))]"
+                },
+                "nicType": "Standard"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2022-07-01",
+            "name": "[parameters('networkInterfaces_cluster_aro_zcqjz_worker_westeurope1_jpr7z_nic_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+            ],
+            "kind": "Regular",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "pipConfig",
+                        "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_worker_westeurope1_jpr7z_nic_name')), '/ipConfigurations/pipConfig')]",
+                        "etag": "W/\"5a2d1d24-a714-41de-9583-26e0a2aceb8d\"",
+                        "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.2.6",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[concat(parameters('virtualNetworks_aro_vnet_externalid'), '/subnets/worker-subnet')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4",
+                            "loadBalancerBackendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "disableTcpStateTracking": false,
+                "nicType": "Standard"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2022-07-01",
+            "name": "[parameters('networkInterfaces_cluster_aro_zcqjz_worker_westeurope2_hsdjh_nic_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+            ],
+            "kind": "Regular",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "pipConfig",
+                        "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_worker_westeurope2_hsdjh_nic_name')), '/ipConfigurations/pipConfig')]",
+                        "etag": "W/\"6a64faa9-9f6e-4891-8a26-55b1a2f80e18\"",
+                        "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.2.5",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[concat(parameters('virtualNetworks_aro_vnet_externalid'), '/subnets/worker-subnet')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4",
+                            "loadBalancerBackendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "disableTcpStateTracking": false,
+                "nicType": "Standard"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2022-07-01",
+            "name": "[parameters('networkInterfaces_cluster_aro_zcqjz_worker_westeurope3_gl5hj_nic_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+            ],
+            "kind": "Regular",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "pipConfig",
+                        "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_worker_westeurope3_gl5hj_nic_name')), '/ipConfigurations/pipConfig')]",
+                        "etag": "W/\"1447e663-1cfa-4666-bb11-f1ef3dc7b934\"",
+                        "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.2.4",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[concat(parameters('virtualNetworks_aro_vnet_externalid'), '/subnets/worker-subnet')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4",
+                            "loadBalancerBackendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "disableTcpStateTracking": false,
+                "nicType": "Standard"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2022-07-01",
+            "name": "[concat(parameters('networkSecurityGroups_cluster_aro_zcqjz_nsg_name'), '/aeab19f36c1b6491a940e5945ed8c731-TCP-443-Internet')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_cluster_aro_zcqjz_nsg_name'))]"
+            ],
+            "properties": {
+                "protocol": "Tcp",
+                "sourcePortRange": "*",
+                "destinationPortRange": "443",
+                "sourceAddressPrefix": "Internet",
+                "destinationAddressPrefix": "20.160.129.206",
+                "access": "Allow",
+                "priority": 501,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2022-07-01",
+            "name": "[concat(parameters('networkSecurityGroups_cluster_aro_zcqjz_nsg_name'), '/aeab19f36c1b6491a940e5945ed8c731-TCP-80-Internet')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_cluster_aro_zcqjz_nsg_name'))]"
+            ],
+            "properties": {
+                "protocol": "Tcp",
+                "sourcePortRange": "*",
+                "destinationPortRange": "80",
+                "sourceAddressPrefix": "Internet",
+                "destinationAddressPrefix": "20.160.129.206",
+                "access": "Allow",
+                "priority": 500,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2022-07-01",
+            "name": "[concat(parameters('networkSecurityGroups_cluster_aro_zcqjz_nsg_name'), '/apiserver_in')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_cluster_aro_zcqjz_nsg_name'))]"
+            ],
+            "properties": {
+                "protocol": "Tcp",
+                "sourcePortRange": "*",
+                "destinationPortRange": "6443",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 120,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/privateLinkServices",
+            "apiVersion": "2022-07-01",
+            "name": "[parameters('privateLinkServices_cluster_aro_zcqjz_pls_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'))]"
+            ],
+            "properties": {
+                "fqdns": [],
+                "visibility": {
+                    "subscriptions": [
+                        "670fef00-02e0-4cd9-8c92-5f593005be0d"
+                    ]
+                },
+                "autoApproval": {
+                    "subscriptions": [
+                        "670fef00-02e0-4cd9-8c92-5f593005be0d"
+                    ]
+                },
+                "enableProxyProtocol": false,
+                "loadBalancerFrontendIpConfigurations": [
+                    {
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/frontendIPConfigurations/internal-lb-ip-v4')]"
+                    }
+                ],
+                "ipConfigurations": [
+                    {
+                        "name": "[concat(parameters('privateLinkServices_cluster_aro_zcqjz_pls_name'), '-nic')]",
+                        "id": "[concat(resourceId('Microsoft.Network/privateLinkServices', parameters('privateLinkServices_cluster_aro_zcqjz_pls_name')), concat('/ipConfigurations/', parameters('privateLinkServices_cluster_aro_zcqjz_pls_name'), '-nic'))]",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[concat(parameters('virtualNetworks_aro_vnet_externalid'), '/subnets/master-subnet')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Network/privateLinkServices/privateEndpointConnections",
+            "apiVersion": "2022-07-01",
+            "name": "[concat(parameters('privateLinkServices_cluster_aro_zcqjz_pls_name'), '/rp-pe-9db639a3-c22e-47ba-bcf7-5ef5cfcd43c4.b6e3dc05-4f2f-483f-a8f3-e9277dfadb49')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/privateLinkServices', parameters('privateLinkServices_cluster_aro_zcqjz_pls_name'))]"
+            ],
+            "properties": {
+                "privateLinkServiceConnectionState": {
+                    "status": "Approved",
+                    "description": "Approved",
+                    "actionsRequired": "None"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/blobServices",
+            "apiVersion": "2022-09-01",
+            "name": "[concat(parameters('storageAccounts_clusterq0076_name'), '/default')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_clusterq0076_name'))]"
+            ],
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "properties": {
+                "cors": {
+                    "corsRules": []
+                },
+                "deleteRetentionPolicy": {
+                    "allowPermanentDelete": false,
+                    "enabled": false
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/blobServices",
+            "apiVersion": "2022-09-01",
+            "name": "[concat(parameters('storageAccounts_imageregistryq0076_name'), '/default')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_imageregistryq0076_name'))]"
+            ],
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "properties": {
+                "cors": {
+                    "corsRules": []
+                },
+                "deleteRetentionPolicy": {
+                    "allowPermanentDelete": false,
+                    "enabled": false
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/fileServices",
+            "apiVersion": "2022-09-01",
+            "name": "[concat(parameters('storageAccounts_clusterq0076_name'), '/default')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_clusterq0076_name'))]"
+            ],
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "properties": {
+                "protocolSettings": {
+                    "smb": {}
+                },
+                "cors": {
+                    "corsRules": []
+                },
+                "shareDeleteRetentionPolicy": {
+                    "enabled": true,
+                    "days": 7
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/fileServices",
+            "apiVersion": "2022-09-01",
+            "name": "[concat(parameters('storageAccounts_imageregistryq0076_name'), '/default')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_imageregistryq0076_name'))]"
+            ],
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "properties": {
+                "protocolSettings": {
+                    "smb": {}
+                },
+                "cors": {
+                    "corsRules": []
+                },
+                "shareDeleteRetentionPolicy": {
+                    "enabled": true,
+                    "days": 7
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/queueServices",
+            "apiVersion": "2022-09-01",
+            "name": "[concat(parameters('storageAccounts_clusterq0076_name'), '/default')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_clusterq0076_name'))]"
+            ],
+            "properties": {
+                "cors": {
+                    "corsRules": []
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/queueServices",
+            "apiVersion": "2022-09-01",
+            "name": "[concat(parameters('storageAccounts_imageregistryq0076_name'), '/default')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_imageregistryq0076_name'))]"
+            ],
+            "properties": {
+                "cors": {
+                    "corsRules": []
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/tableServices",
+            "apiVersion": "2022-09-01",
+            "name": "[concat(parameters('storageAccounts_clusterq0076_name'), '/default')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_clusterq0076_name'))]"
+            ],
+            "properties": {
+                "cors": {
+                    "corsRules": []
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/tableServices",
+            "apiVersion": "2022-09-01",
+            "name": "[concat(parameters('storageAccounts_imageregistryq0076_name'), '/default')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_imageregistryq0076_name'))]"
+            ],
+            "properties": {
+                "cors": {
+                    "corsRules": []
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2022-11-01",
+            "name": "[parameters('virtualMachines_cluster_aro_zcqjz_master_0_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_master0_nic_name'))]",
+                "[resourceId('Microsoft.Storage/StorageAccounts', parameters('storageAccounts_clusterq0076_name'))]"
+            ],
+            "zones": [
+                "1"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_D8s_v3"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "azureopenshift",
+                        "offer": "aro4",
+                        "sku": "aro_410",
+                        "version": "410.84.20220125"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "[concat(parameters('virtualMachines_cluster_aro_zcqjz_master_0_name'), '_OSDisk')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadOnly",
+                        "managedDisk": {
+                            "storageAccountType": "Premium_LRS",
+                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_cluster_aro_zcqjz_master_0_name'), '_OSDisk'))]"
+                        },
+                        "deleteOption": "Detach",
+                        "diskSizeGB": 1024
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_cluster_aro_zcqjz_master_0_name')]",
+                    "adminUsername": "core",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": false,
+                        "provisionVMAgent": true,
+                        "patchSettings": {
+                            "patchMode": "ImageDefault",
+                            "assessmentMode": "ImageDefault"
+                        },
+                        "enableVMAgentPlatformUpdates": false
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true,
+                    "requireGuestProvisionSignal": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_master0_nic_name'))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('https://', parameters('storageAccounts_clusterq0076_name'), '.blob.core.windows.net/')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2022-11-01",
+            "name": "[parameters('virtualMachines_cluster_aro_zcqjz_master_1_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_master1_nic_name'))]",
+                "[resourceId('Microsoft.Storage/StorageAccounts', parameters('storageAccounts_clusterq0076_name'))]"
+            ],
+            "zones": [
+                "2"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_D8s_v3"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "azureopenshift",
+                        "offer": "aro4",
+                        "sku": "aro_410",
+                        "version": "410.84.20220125"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "[concat(parameters('virtualMachines_cluster_aro_zcqjz_master_1_name'), '_OSDisk')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadOnly",
+                        "managedDisk": {
+                            "storageAccountType": "Premium_LRS",
+                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_cluster_aro_zcqjz_master_1_name'), '_OSDisk'))]"
+                        },
+                        "deleteOption": "Detach",
+                        "diskSizeGB": 1024
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_cluster_aro_zcqjz_master_1_name')]",
+                    "adminUsername": "core",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": false,
+                        "provisionVMAgent": true,
+                        "patchSettings": {
+                            "patchMode": "ImageDefault",
+                            "assessmentMode": "ImageDefault"
+                        },
+                        "enableVMAgentPlatformUpdates": false
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true,
+                    "requireGuestProvisionSignal": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_master1_nic_name'))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('https://', parameters('storageAccounts_clusterq0076_name'), '.blob.core.windows.net/')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2022-11-01",
+            "name": "[parameters('virtualMachines_cluster_aro_zcqjz_master_2_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_master2_nic_name'))]",
+                "[resourceId('Microsoft.Storage/StorageAccounts', parameters('storageAccounts_clusterq0076_name'))]"
+            ],
+            "zones": [
+                "3"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_D8s_v3"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "azureopenshift",
+                        "offer": "aro4",
+                        "sku": "aro_410",
+                        "version": "410.84.20220125"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "[concat(parameters('virtualMachines_cluster_aro_zcqjz_master_2_name'), '_OSDisk')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadOnly",
+                        "managedDisk": {
+                            "storageAccountType": "Premium_LRS",
+                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_cluster_aro_zcqjz_master_2_name'), '_OSDisk'))]"
+                        },
+                        "deleteOption": "Detach",
+                        "diskSizeGB": 1024
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_cluster_aro_zcqjz_master_2_name')]",
+                    "adminUsername": "core",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": false,
+                        "provisionVMAgent": true,
+                        "patchSettings": {
+                            "patchMode": "ImageDefault",
+                            "assessmentMode": "ImageDefault"
+                        },
+                        "enableVMAgentPlatformUpdates": false
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true,
+                    "requireGuestProvisionSignal": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_master2_nic_name'))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('https://', parameters('storageAccounts_clusterq0076_name'), '.blob.core.windows.net/')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+            "apiVersion": "2022-09-01",
+            "name": "[concat(parameters('storageAccounts_clusterq0076_name'), '/default/aro')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccounts_clusterq0076_name'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_clusterq0076_name'))]"
+            ],
+            "properties": {
+                "immutableStorageWithVersioning": {
+                    "enabled": false
+                },
+                "defaultEncryptionScope": "$account-encryption-key",
+                "denyEncryptionScopeOverride": false,
+                "publicAccess": "None"
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+            "apiVersion": "2022-09-01",
+            "name": "[concat(parameters('storageAccounts_clusterq0076_name'), '/default/bootdiagnostics-clusterar-24e4d0fe-d52b-44e5-914f-d863c244dd82')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccounts_clusterq0076_name'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_clusterq0076_name'))]"
+            ],
+            "properties": {
+                "immutableStorageWithVersioning": {
+                    "enabled": false
+                },
+                "defaultEncryptionScope": "$account-encryption-key",
+                "denyEncryptionScopeOverride": false,
+                "publicAccess": "None"
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+            "apiVersion": "2022-09-01",
+            "name": "[concat(parameters('storageAccounts_clusterq0076_name'), '/default/bootdiagnostics-clusterar-cef2458b-0790-4470-a7dd-d308fb4f98d1')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccounts_clusterq0076_name'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_clusterq0076_name'))]"
+            ],
+            "properties": {
+                "immutableStorageWithVersioning": {
+                    "enabled": false
+                },
+                "defaultEncryptionScope": "$account-encryption-key",
+                "denyEncryptionScopeOverride": false,
+                "publicAccess": "None"
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+            "apiVersion": "2022-09-01",
+            "name": "[concat(parameters('storageAccounts_clusterq0076_name'), '/default/bootdiagnostics-clusterar-dace7636-6890-4435-af21-b5cdbf3fb8ce')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccounts_clusterq0076_name'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_clusterq0076_name'))]"
+            ],
+            "properties": {
+                "immutableStorageWithVersioning": {
+                    "enabled": false
+                },
+                "defaultEncryptionScope": "$account-encryption-key",
+                "denyEncryptionScopeOverride": false,
+                "publicAccess": "None"
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+            "apiVersion": "2022-09-01",
+            "name": "[concat(parameters('storageAccounts_clusterq0076_name'), '/default/bootdiagnostics-clusterar-f1d98df7-3776-4868-8c37-8089caeeb4ff')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccounts_clusterq0076_name'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_clusterq0076_name'))]"
+            ],
+            "properties": {
+                "immutableStorageWithVersioning": {
+                    "enabled": false
+                },
+                "defaultEncryptionScope": "$account-encryption-key",
+                "denyEncryptionScopeOverride": false,
+                "publicAccess": "None"
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+            "apiVersion": "2022-09-01",
+            "name": "[concat(parameters('storageAccounts_imageregistryq0076_name'), '/default/image-registry')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccounts_imageregistryq0076_name'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_imageregistryq0076_name'))]"
+            ],
+            "properties": {
+                "immutableStorageWithVersioning": {
+                    "enabled": false
+                },
+                "defaultEncryptionScope": "$account-encryption-key",
+                "denyEncryptionScopeOverride": false,
+                "publicAccess": "None"
+            }
+        },
+        {
+            "type": "Microsoft.Network/loadBalancers",
+            "apiVersion": "2022-07-01",
+            "name": "[parameters('loadBalancers_cluster_aro_zcqjz_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_cluster_aro_zcqjz_pip_v4_name'))]",
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_cluster_aro_zcqjz_default_v4_name'))]",
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+            ],
+            "sku": {
+                "name": "Standard",
+                "tier": "Regional"
+            },
+            "properties": {
+                "frontendIPConfigurations": [
+                    {
+                        "name": "public-lb-ip-v4",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_name')), '/frontendIPConfigurations/public-lb-ip-v4')]",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_cluster_aro_zcqjz_pip_v4_name'))]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "aeab19f36c1b6491a940e5945ed8c731",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_name')), '/frontendIPConfigurations/aeab19f36c1b6491a940e5945ed8c731')]",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_cluster_aro_zcqjz_default_v4_name'))]"
+                            }
+                        }
+                    }
+                ],
+                "backendAddressPools": [
+                    {
+                        "name": "[parameters('loadBalancers_cluster_aro_zcqjz_name')]",
+                        "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]",
+                        "properties": {
+                            "loadBalancerBackendAddresses": [
+                                {
+                                    "name": "[concat('aro-cvrk480s_', parameters('loadBalancers_cluster_aro_zcqjz_name'), '-master0-nicpipConfig')]",
+                                    "properties": {}
+                                },
+                                {
+                                    "name": "[concat('aro-cvrk480s_', parameters('loadBalancers_cluster_aro_zcqjz_name'), '-master2-nicpipConfig')]",
+                                    "properties": {}
+                                },
+                                {
+                                    "name": "[concat('aro-cvrk480s_', parameters('loadBalancers_cluster_aro_zcqjz_name'), '-master1-nicpipConfig')]",
+                                    "properties": {}
+                                },
+                                {
+                                    "name": "[concat('aro-cvrk480s_', parameters('loadBalancers_cluster_aro_zcqjz_name'), '-worker-westeurope2-hsdjh-nicpipConfig')]",
+                                    "properties": {}
+                                },
+                                {
+                                    "name": "[concat('aro-cvrk480s_', parameters('loadBalancers_cluster_aro_zcqjz_name'), '-worker-westeurope3-gl5hj-nicpipConfig')]",
+                                    "properties": {}
+                                },
+                                {
+                                    "name": "[concat('aro-cvrk480s_', parameters('loadBalancers_cluster_aro_zcqjz_name'), '-worker-westeurope1-jpr7z-nicpipConfig')]",
+                                    "properties": {}
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "loadBalancingRules": [
+                    {
+                        "name": "api-internal-v4",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_name')), '/loadBalancingRules/api-internal-v4')]",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_name')), '/frontendIPConfigurations/public-lb-ip-v4')]"
+                            },
+                            "frontendPort": 6443,
+                            "backendPort": 6443,
+                            "enableFloatingIP": false,
+                            "idleTimeoutInMinutes": 30,
+                            "protocol": "Tcp",
+                            "enableTcpReset": false,
+                            "loadDistribution": "Default",
+                            "disableOutboundSnat": true,
+                            "backendAddressPool": {
+                                "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+                            },
+                            "backendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+                                }
+                            ],
+                            "probe": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_name')), '/probes/api-internal-probe')]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "aeab19f36c1b6491a940e5945ed8c731-TCP-80",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_name')), '/loadBalancingRules/aeab19f36c1b6491a940e5945ed8c731-TCP-80')]",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_name')), '/frontendIPConfigurations/aeab19f36c1b6491a940e5945ed8c731')]"
+                            },
+                            "frontendPort": 80,
+                            "backendPort": 80,
+                            "enableFloatingIP": true,
+                            "idleTimeoutInMinutes": 4,
+                            "protocol": "Tcp",
+                            "enableTcpReset": true,
+                            "loadDistribution": "Default",
+                            "disableOutboundSnat": false,
+                            "backendAddressPool": {
+                                "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+                            },
+                            "backendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+                                }
+                            ],
+                            "probe": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_name')), '/probes/aeab19f36c1b6491a940e5945ed8c731-TCP-80')]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "aeab19f36c1b6491a940e5945ed8c731-TCP-443",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_name')), '/loadBalancingRules/aeab19f36c1b6491a940e5945ed8c731-TCP-443')]",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_name')), '/frontendIPConfigurations/aeab19f36c1b6491a940e5945ed8c731')]"
+                            },
+                            "frontendPort": 443,
+                            "backendPort": 443,
+                            "enableFloatingIP": true,
+                            "idleTimeoutInMinutes": 4,
+                            "protocol": "Tcp",
+                            "enableTcpReset": true,
+                            "loadDistribution": "Default",
+                            "disableOutboundSnat": false,
+                            "backendAddressPool": {
+                                "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+                            },
+                            "backendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+                                }
+                            ],
+                            "probe": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_name')), '/probes/aeab19f36c1b6491a940e5945ed8c731-TCP-443')]"
+                            }
+                        }
+                    }
+                ],
+                "probes": [
+                    {
+                        "name": "api-internal-probe",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_name')), '/probes/api-internal-probe')]",
+                        "properties": {
+                            "protocol": "Https",
+                            "port": 6443,
+                            "requestPath": "/readyz",
+                            "intervalInSeconds": 5,
+                            "numberOfProbes": 2,
+                            "probeThreshold": 1
+                        }
+                    },
+                    {
+                        "name": "aeab19f36c1b6491a940e5945ed8c731-TCP-80",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_name')), '/probes/aeab19f36c1b6491a940e5945ed8c731-TCP-80')]",
+                        "properties": {
+                            "protocol": "Http",
+                            "port": 31711,
+                            "requestPath": "/healthz",
+                            "intervalInSeconds": 5,
+                            "numberOfProbes": 2,
+                            "probeThreshold": 1
+                        }
+                    },
+                    {
+                        "name": "aeab19f36c1b6491a940e5945ed8c731-TCP-443",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_name')), '/probes/aeab19f36c1b6491a940e5945ed8c731-TCP-443')]",
+                        "properties": {
+                            "protocol": "Http",
+                            "port": 31711,
+                            "requestPath": "/healthz",
+                            "intervalInSeconds": 5,
+                            "numberOfProbes": 2,
+                            "probeThreshold": 1
+                        }
+                    }
+                ],
+                "inboundNatRules": [],
+                "outboundRules": [
+                    {
+                        "name": "outbound-rule-v4",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_name')), '/outboundRules/outbound-rule-v4')]",
+                        "properties": {
+                            "allocatedOutboundPorts": 1024,
+                            "protocol": "All",
+                            "enableTcpReset": false,
+                            "idleTimeoutInMinutes": 30,
+                            "backendAddressPool": {
+                                "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+                            },
+                            "frontendIPConfigurations": [
+                                {
+                                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_name')), '/frontendIPConfigurations/public-lb-ip-v4')]"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "inboundNatPools": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2022-07-01",
+            "name": "[parameters('networkInterfaces_cluster_aro_zcqjz_master0_nic_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'cluster-aro-zcqjz')]",
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-0')]",
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+            ],
+            "kind": "Regular",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "pipConfig",
+                        "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_master0_nic_name')), '/ipConfigurations/pipConfig')]",
+                        "etag": "W/\"36bae7ec-3c2e-42ad-8b67-f36bf9bbc52f\"",
+                        "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.0.7",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[concat(parameters('virtualNetworks_aro_vnet_externalid'), '/subnets/master-subnet')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4",
+                            "loadBalancerBackendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'cluster-aro-zcqjz')]"
+                                },
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-0')]"
+                                },
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "disableTcpStateTracking": false,
+                "nicType": "Standard"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2022-07-01",
+            "name": "[parameters('networkInterfaces_cluster_aro_zcqjz_master1_nic_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'cluster-aro-zcqjz')]",
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-1')]",
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+            ],
+            "kind": "Regular",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "pipConfig",
+                        "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_master1_nic_name')), '/ipConfigurations/pipConfig')]",
+                        "etag": "W/\"9c58b966-034e-45f3-be0c-d8805640e039\"",
+                        "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.0.10",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[concat(parameters('virtualNetworks_aro_vnet_externalid'), '/subnets/master-subnet')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4",
+                            "loadBalancerBackendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'cluster-aro-zcqjz')]"
+                                },
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-1')]"
+                                },
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "disableTcpStateTracking": false,
+                "nicType": "Standard"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2022-07-01",
+            "name": "[parameters('networkInterfaces_cluster_aro_zcqjz_master2_nic_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'cluster-aro-zcqjz')]",
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-2')]",
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+            ],
+            "kind": "Regular",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "pipConfig",
+                        "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cluster_aro_zcqjz_master2_nic_name')), '/ipConfigurations/pipConfig')]",
+                        "etag": "W/\"49b60320-b5d1-4e66-a7f3-f74d0f5abf58\"",
+                        "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.0.8",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[concat(parameters('virtualNetworks_aro_vnet_externalid'), '/subnets/master-subnet')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4",
+                            "loadBalancerBackendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'cluster-aro-zcqjz')]"
+                                },
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-2')]"
+                                },
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_name'), parameters('loadBalancers_cluster_aro_zcqjz_name'))]"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "disableTcpStateTracking": false,
+                "nicType": "Standard"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "apiVersion": "2022-07-01",
+            "name": "[parameters('networkSecurityGroups_cluster_aro_zcqjz_nsg_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_cluster_aro_zcqjz_nsg_name'), 'apiserver_in')]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_cluster_aro_zcqjz_nsg_name'), 'aeab19f36c1b6491a940e5945ed8c731-TCP-80-Internet')]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_cluster_aro_zcqjz_nsg_name'), 'aeab19f36c1b6491a940e5945ed8c731-TCP-443-Internet')]"
+            ],
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "apiserver_in",
+                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_cluster_aro_zcqjz_nsg_name'), 'apiserver_in')]",
+                        "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "6443",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 120,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "aeab19f36c1b6491a940e5945ed8c731-TCP-80-Internet",
+                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_cluster_aro_zcqjz_nsg_name'), 'aeab19f36c1b6491a940e5945ed8c731-TCP-80-Internet')]",
+                        "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "80",
+                            "sourceAddressPrefix": "Internet",
+                            "destinationAddressPrefix": "20.160.129.206",
+                            "access": "Allow",
+                            "priority": 500,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "aeab19f36c1b6491a940e5945ed8c731-TCP-443-Internet",
+                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_cluster_aro_zcqjz_nsg_name'), 'aeab19f36c1b6491a940e5945ed8c731-TCP-443-Internet')]",
+                        "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "443",
+                            "sourceAddressPrefix": "Internet",
+                            "destinationAddressPrefix": "20.160.129.206",
+                            "access": "Allow",
+                            "priority": 501,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Network/loadBalancers",
+            "apiVersion": "2022-07-01",
+            "name": "[parameters('loadBalancers_cluster_aro_zcqjz_internal_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'cluster-aro-zcqjz')]",
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-0')]",
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-1')]",
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-2')]"
+            ],
+            "sku": {
+                "name": "Standard",
+                "tier": "Regional"
+            },
+            "properties": {
+                "frontendIPConfigurations": [
+                    {
+                        "name": "internal-lb-ip-v4",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/frontendIPConfigurations/internal-lb-ip-v4')]",
+                        "properties": {
+                            "privateIPAddress": "10.0.0.4",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[concat(parameters('virtualNetworks_aro_vnet_externalid'), '/subnets/master-subnet')]"
+                            },
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "backendAddressPools": [
+                    {
+                        "name": "cluster-aro-zcqjz",
+                        "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'cluster-aro-zcqjz')]",
+                        "properties": {
+                            "loadBalancerBackendAddresses": [
+                                {
+                                    "name": "aro-cvrk480s_cluster-aro-zcqjz-master0-nicpipConfig",
+                                    "properties": {}
+                                },
+                                {
+                                    "name": "aro-cvrk480s_cluster-aro-zcqjz-master2-nicpipConfig",
+                                    "properties": {}
+                                },
+                                {
+                                    "name": "aro-cvrk480s_cluster-aro-zcqjz-master1-nicpipConfig",
+                                    "properties": {}
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "ssh-0",
+                        "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-0')]",
+                        "properties": {
+                            "loadBalancerBackendAddresses": [
+                                {
+                                    "name": "aro-cvrk480s_cluster-aro-zcqjz-master0-nicpipConfig",
+                                    "properties": {}
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "ssh-1",
+                        "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-1')]",
+                        "properties": {
+                            "loadBalancerBackendAddresses": [
+                                {
+                                    "name": "aro-cvrk480s_cluster-aro-zcqjz-master1-nicpipConfig",
+                                    "properties": {}
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "ssh-2",
+                        "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-2')]",
+                        "properties": {
+                            "loadBalancerBackendAddresses": [
+                                {
+                                    "name": "aro-cvrk480s_cluster-aro-zcqjz-master2-nicpipConfig",
+                                    "properties": {}
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "loadBalancingRules": [
+                    {
+                        "name": "api-internal-v4",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/loadBalancingRules/api-internal-v4')]",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/frontendIPConfigurations/internal-lb-ip-v4')]"
+                            },
+                            "frontendPort": 6443,
+                            "backendPort": 6443,
+                            "enableFloatingIP": false,
+                            "idleTimeoutInMinutes": 30,
+                            "protocol": "Tcp",
+                            "enableTcpReset": false,
+                            "loadDistribution": "Default",
+                            "disableOutboundSnat": true,
+                            "backendAddressPool": {
+                                "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'cluster-aro-zcqjz')]"
+                            },
+                            "backendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'cluster-aro-zcqjz')]"
+                                }
+                            ],
+                            "probe": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/probes/api-internal-probe')]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "sint-v4",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/loadBalancingRules/sint-v4')]",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/frontendIPConfigurations/internal-lb-ip-v4')]"
+                            },
+                            "frontendPort": 22623,
+                            "backendPort": 22623,
+                            "enableFloatingIP": false,
+                            "idleTimeoutInMinutes": 30,
+                            "protocol": "Tcp",
+                            "enableTcpReset": false,
+                            "loadDistribution": "Default",
+                            "disableOutboundSnat": false,
+                            "backendAddressPool": {
+                                "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'cluster-aro-zcqjz')]"
+                            },
+                            "backendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'cluster-aro-zcqjz')]"
+                                }
+                            ],
+                            "probe": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/probes/sint-probe')]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "ssh-0",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/loadBalancingRules/ssh-0')]",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/frontendIPConfigurations/internal-lb-ip-v4')]"
+                            },
+                            "frontendPort": 2200,
+                            "backendPort": 22,
+                            "enableFloatingIP": false,
+                            "idleTimeoutInMinutes": 30,
+                            "protocol": "Tcp",
+                            "enableTcpReset": false,
+                            "loadDistribution": "Default",
+                            "disableOutboundSnat": true,
+                            "backendAddressPool": {
+                                "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-0')]"
+                            },
+                            "backendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-0')]"
+                                }
+                            ],
+                            "probe": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/probes/ssh')]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "ssh-1",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/loadBalancingRules/ssh-1')]",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/frontendIPConfigurations/internal-lb-ip-v4')]"
+                            },
+                            "frontendPort": 2201,
+                            "backendPort": 22,
+                            "enableFloatingIP": false,
+                            "idleTimeoutInMinutes": 30,
+                            "protocol": "Tcp",
+                            "enableTcpReset": false,
+                            "loadDistribution": "Default",
+                            "disableOutboundSnat": true,
+                            "backendAddressPool": {
+                                "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-1')]"
+                            },
+                            "backendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-1')]"
+                                }
+                            ],
+                            "probe": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/probes/ssh')]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "ssh-2",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/loadBalancingRules/ssh-2')]",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/frontendIPConfigurations/internal-lb-ip-v4')]"
+                            },
+                            "frontendPort": 2202,
+                            "backendPort": 22,
+                            "enableFloatingIP": false,
+                            "idleTimeoutInMinutes": 30,
+                            "protocol": "Tcp",
+                            "enableTcpReset": false,
+                            "loadDistribution": "Default",
+                            "disableOutboundSnat": true,
+                            "backendAddressPool": {
+                                "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-2')]"
+                            },
+                            "backendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_cluster_aro_zcqjz_internal_name'), 'ssh-2')]"
+                                }
+                            ],
+                            "probe": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/probes/ssh')]"
+                            }
+                        }
+                    }
+                ],
+                "probes": [
+                    {
+                        "name": "api-internal-probe",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/probes/api-internal-probe')]",
+                        "properties": {
+                            "protocol": "Https",
+                            "port": 6443,
+                            "requestPath": "/readyz",
+                            "intervalInSeconds": 5,
+                            "numberOfProbes": 2,
+                            "probeThreshold": 1
+                        }
+                    },
+                    {
+                        "name": "sint-probe",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/probes/sint-probe')]",
+                        "properties": {
+                            "protocol": "Https",
+                            "port": 22623,
+                            "requestPath": "/healthz",
+                            "intervalInSeconds": 5,
+                            "numberOfProbes": 2,
+                            "probeThreshold": 1
+                        }
+                    },
+                    {
+                        "name": "ssh",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_cluster_aro_zcqjz_internal_name')), '/probes/ssh')]",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "port": 22,
+                            "intervalInSeconds": 5,
+                            "numberOfProbes": 2,
+                            "probeThreshold": 1
+                        }
+                    }
+                ],
+                "inboundNatRules": [],
+                "outboundRules": [],
+                "inboundNatPools": []
+            }
+        }
+    ]
+}

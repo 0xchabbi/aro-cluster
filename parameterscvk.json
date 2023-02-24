@@ -1,0 +1,93 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccounts_clusterq0076_name": {
+            "value": null
+        },
+        "loadBalancers_cluster_aro_zcqjz_name": {
+            "value": null
+        },
+        "storageAccounts_imageregistryq0076_name": {
+            "value": null
+        },
+        "privateEndpoints_cluster_aro_zcqjz_pe_name": {
+            "value": null
+        },
+        "loadBalancers_cluster_aro_zcqjz_internal_name": {
+            "value": null
+        },
+        "privateLinkServices_cluster_aro_zcqjz_pls_name": {
+            "value": null
+        },
+        "virtualMachines_cluster_aro_zcqjz_master_0_name": {
+            "value": null
+        },
+        "virtualMachines_cluster_aro_zcqjz_master_1_name": {
+            "value": null
+        },
+        "virtualMachines_cluster_aro_zcqjz_master_2_name": {
+            "value": null
+        },
+        "publicIPAddresses_cluster_aro_zcqjz_pip_v4_name": {
+            "value": null
+        },
+        "networkSecurityGroups_cluster_aro_zcqjz_nsg_name": {
+            "value": null
+        },
+        "publicIPAddresses_cluster_aro_zcqjz_default_v4_name": {
+            "value": null
+        },
+        "networkInterfaces_cluster_aro_zcqjz_master0_nic_name": {
+            "value": null
+        },
+        "networkInterfaces_cluster_aro_zcqjz_master1_nic_name": {
+            "value": null
+        },
+        "networkInterfaces_cluster_aro_zcqjz_master2_nic_name": {
+            "value": null
+        },
+        "virtualMachines_cluster_aro_zcqjz_worker_westeurope1_jpr7z_name": {
+            "value": null
+        },
+        "virtualMachines_cluster_aro_zcqjz_worker_westeurope2_hsdjh_name": {
+            "value": null
+        },
+        "virtualMachines_cluster_aro_zcqjz_worker_westeurope3_gl5hj_name": {
+            "value": null
+        },
+        "networkInterfaces_cluster_aro_zcqjz_worker_westeurope1_jpr7z_nic_name": {
+            "value": null
+        },
+        "networkInterfaces_cluster_aro_zcqjz_worker_westeurope2_hsdjh_nic_name": {
+            "value": null
+        },
+        "networkInterfaces_cluster_aro_zcqjz_worker_westeurope3_gl5hj_nic_name": {
+            "value": null
+        },
+        "disks_cluster_aro_zcqjz_dynamic_pvc_0cd0b5a6_a90a_497b_a567_e9fea76c9cdc_name": {
+            "value": null
+        },
+        "networkInterfaces_cluster_aro_zcqjz_pe_nic_0044dba0_7671_4a24_850a_d34369a604e5_name": {
+            "value": null
+        },
+        "networkInterfaces_cluster_aro_zcqjz_pls_nic_3b052138_5dd5_45e9_b69c_390b05544d7f_name": {
+            "value": null
+        },
+        "virtualNetworks_aro_vnet_externalid": {
+            "value": null
+        },
+        "privateLinkServices_gateway_pls_001_externalid": {
+            "value": null
+        },
+        "virtualNetworks_rp_pe_vnet_001_externalid": {
+            "value": null
+        },
+        "virtualNetworks_rp_vnet_externalid": {
+            "value": null
+        },
+        "virtualNetworks_gateway_vnet_externalid": {
+            "value": null
+        }
+    }
+}
