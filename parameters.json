@@ -1,0 +1,15 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualNetworks_aro_vnet_name": {
+            "value": null
+        },
+        "openShiftClusters_cluster_aro_name": {
+            "value": null
+        },
+        "networkSecurityGroups_cluster_aro_zcqjz_nsg_externalid": {
+            "value": null
+        }
+    }
+}
